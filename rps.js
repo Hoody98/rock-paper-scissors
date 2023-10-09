@@ -7,6 +7,12 @@ function computerPlay() {
     return choices[Math.floor(Math.random() * choices.length)]
 }
 
+function disableButtons() {
+    buttons.forEach(elem => {
+        elem.disabled = true
+    })
+}
+
 function playRound(playerSelection) {
     let computerSelection = computerPlay()
     let result = ""
@@ -42,3 +48,9 @@ function playRound(playerSelection) {
     document.getElementById('result').innerHTML = result
     return
 }
+
+buttons.forEach(button =>{
+    button.addEventListener('click', function(){
+        playRound(button.value)
+    })
+})
